@@ -1,8 +1,9 @@
 {
   "name": "not-to-do-api",
   "version": "1.0.0",
-  "description": "This",
-  "main": "index.js",
+  "description": "This is a api for react not to do list",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"

@@ -1,7 +1,16 @@
-### get url
+### Task get api: fetch all the tasks
+GET http://localhost:8000/api/v1/task
 
-GET http://localhost:8000
 
-### welcome message
+### Task post api
+POST http://localhost:8000/api/v1/task
+Content-Type: application/json
 
-GET http://localhost:8000/api/v1/
+{
+    "task": "PLaying football",
+    "hr": 12
+}
+
+
+### Task delete api
+DELETE  http://localhost:8000/api/v1/task

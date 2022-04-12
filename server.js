@@ -3,14 +3,13 @@ import express from 'express'
 const app = express();
 const PORT = 8000;
 
-// API end points
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
-app.get("/api/v1/", (req, res) => {
-    res.json({
-        message: "Welcome to the api"
-    })
+// lode modules
+import taskRouter from './src/routers/taskRouter.js';
 
-})
+app.use("/api/v1/task", taskRouter);
 
 
 app.use("/", (req, res) => {

@@ -1,7 +1,13 @@
+import "dotenv/config";
+
 // const express = require('express');
 import express from 'express'
 const app = express();
 const PORT = 8000;
+
+// connect to mongodb
+import mongoClient from './src/config/db.js'
+mongoClient();
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());

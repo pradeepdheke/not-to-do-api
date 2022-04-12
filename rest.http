@@ -7,7 +7,7 @@ POST http://localhost:8000/api/v1/task
 Content-Type: application/json
 
 {
-    "task": "PLaying football",
+    "task": "travel",
     "hr": 12
 }
 

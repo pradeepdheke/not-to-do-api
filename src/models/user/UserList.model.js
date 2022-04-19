@@ -14,7 +14,7 @@ export const getUsers = () => {
 
 // get single user
 
-export const getSingleUser = _id => {
+export const getUserById = _id => {
     return UserListSchema.findById(_id);
 };
 
@@ -22,3 +22,16 @@ export const getSingleUser = _id => {
 export const deleteUser = _id => {
     return UserListSchema.findByIdAndDelete(_id);
 }
+
+// update user password
+export const updateUserPassword = ({_id, newPassword}) => {
+    return UserListSchema.findByIdAndUpdate(
+        _id,
+        {
+            password: newPassword,
+        },
+        {
+            new: true,
+        }
+    );
+};

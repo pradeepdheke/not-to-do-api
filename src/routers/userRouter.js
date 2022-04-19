@@ -1,5 +1,5 @@
 import express from 'express';
-import {deleteUser, getUsers, insertUser} from '../models/user/UserList.model.js'
+import {deleteUser, getUsers, insertUser, getUserById, updateUserPassword, } from '../models/user/UserList.model.js'
 const router = express.Router()
 
 // replace the fakeUsers with th real ones from database
@@ -20,7 +20,8 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:_id", async (req, res) => {
-    const result = await getUsers(_id);
+    const {_id} = req.params
+    const result = await getUserById(_id);
 
     
     res.json({
@@ -67,7 +68,7 @@ router.delete("/:_id", async (req, res) => {
 
          return   res.json({
                 status : "success",
-                message: "The ticket has been deleted",
+                message: "The user has been deleted",
                 result,
             });
         }
@@ -86,5 +87,11 @@ router.delete("/:_id", async (req, res) => {
     }
         
     });
+
+    router.patch("/", async (req, res) => {
+        console.log(req.body);
+        const result = await updateUserPassword(req.body);
+        res.json({status: "success", result}); 
+     });
 
 export default router;

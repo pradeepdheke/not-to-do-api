@@ -41,3 +41,12 @@ GET http://localhost:8000/api/v1/user/625e2ca42c226669cf75024b
 ### delete the user
 DELETE  http://localhost:8000/api/v1/user/625e07de80e79d7f3ba76886
 
+### update the user
+PATCH  http://localhost:8000/api/v1/user
+Content-Type: application/json
+
+{
+    "_id": "625e28620cf0b78de246eff9",
+    "newPassword": "abc"
+}
+

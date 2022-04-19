@@ -33,7 +33,7 @@ try {
 } catch {
     res.json({
         status: "error",
-        message: error.message
+        message: error.message,
     });
 }
 

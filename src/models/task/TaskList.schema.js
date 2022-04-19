@@ -5,7 +5,7 @@ const TaskListSchema = new mongoose.Schema({
         type: String,
         required: true,
         default: "",
-        min: 3,
+        minlength: [3, "Cannot be less than 3 characters!!!"],
        max: 30,
 },
 

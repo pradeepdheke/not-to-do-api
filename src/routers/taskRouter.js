@@ -1,5 +1,5 @@
 import express from 'express';
-import {getTasks, insertTask} from '../models/task/TaskList.model.js'
+import {deleteTask, getTasks, insertTask} from '../models/task/TaskList.model.js'
 const router = express.Router()
 
 // replace the fakeTasks with th real ones from database
@@ -39,11 +39,39 @@ try {
 
 })
 
-router.delete("/", (req, res) => {
-    res.json({
-        message: "You made a delete call"
-    })
+router.delete("/:_id", async (req, res) => {
+    // we need _id to delete the item from db
+    try {
 
-});
+        const {_id} = req.params;
+        console.log(_id);
+        
+        const result = await deleteTask(_id);
+        
+        console.log(result);
+        
+        if (result?._id) {
+
+         return   res.json({
+                status : "success",
+                message: "The ticket has been deleted",
+                result,
+            });
+        }
+        res.json({
+            status : "success",
+            message: "There is nothing to delete",
+            result, 
+        });
+            
+        } catch (error) {
+        res.json({
+            status: "error",
+            message: error.message,
+        })
+
+    }
+        
+    });
 
 export default router;

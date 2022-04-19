@@ -11,9 +11,11 @@ All the api will be following the `{rooturl}/api/v1` format.
 | #  | Method   | Path      | Description                                                    |
 |----|----------|-----------|----------------------------------------------------------------|
 | 1. | `GET`    | `/task`   | this wil return all the task available in the database         |
-| 2. | `POST`   | `/task`   | send task object to store in the database                      |
+| 2. | `POST`   | `/task`   | send task object to api and store in the database              |
 | 3. | `DELETE` | `/task`   | It expects ID of the task wand will delete a task from database|  
 
 
 `../api/v1/user` resource will provide all user related api.
 
+
+### User api

@@ -1,3 +1,6 @@
+### root api
+GET http://localhost:8000/
+
 ### Task get api: fetch all the tasks
 GET http://localhost:8000/api/v1/task
 
@@ -7,10 +10,11 @@ POST http://localhost:8000/api/v1/task
 Content-Type: application/json
 
 {
-    "task": "travel",
+    "task": "playing",
     "hr": 12
 }
 
 
 ### Task delete api
-DELETE  http://localhost:8000/api/v1/task
+DELETE  http://localhost:8000/api/v1/task/625e07de80e79d7f3ba76886
+

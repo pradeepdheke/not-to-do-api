@@ -18,3 +18,26 @@ Content-Type: application/json
 ### Task delete api
 DELETE  http://localhost:8000/api/v1/task/625e07de80e79d7f3ba76886
 
+
+### get all the users
+GET http://localhost:8000/api/v1/user
+
+
+### create user with name, email and password
+POST http://localhost:8000/api/v1/user
+Content-Type: application/json
+
+{
+    "fname": "Raj",
+    "lname": "Sherma",
+    "email": "rs123@gmail.com",
+    "password": "rs321"
+}
+
+### get single user
+GET http://localhost:8000/api/v1/user/625e2ca42c226669cf75024b
+
+
+### delete the user
+DELETE  http://localhost:8000/api/v1/user/625e07de80e79d7f3ba76886
+

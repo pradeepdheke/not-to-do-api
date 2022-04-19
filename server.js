@@ -17,6 +17,9 @@ import taskRouter from './src/routers/taskRouter.js';
 
 app.use("/api/v1/task", taskRouter);
 
+import userRouter from './src/routers/userRouter.js';
+app.use("/api/v1/user", userRouter);
+
 
 app.use("/", (req, res) => {
     // const person = {

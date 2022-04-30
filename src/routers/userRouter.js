@@ -1,20 +1,33 @@
 import express from 'express';
-import {deleteTask, getTasks, insertTask} from '../models/task/TaskList.model.js'
+import {deleteUser, getUsers, insertUser, getUserById, updateUserPassword, } from '../models/user/UserList.model.js'
 const router = express.Router()
 
-// replace the fakeTasks with th real ones from database
-const fakeTasks = [];
+// replace the fakeUsers with th real ones from database
+const fakeUsers = [];
 
-// task api end points
+// user api end points
 
 router.get("/", async (req, res) => {
-    const result = await getTasks();
+    const result = await getUsers();
 
     
     res.json({
         status: "success",
         message: "You made a get call",
-        tasks: fakeTasks,
+        users: result,
+    });
+    
+});
+
+router.get("/:_id", async (req, res) => {
+    const {_id} = req.params
+    const result = await getUserById(_id);
+
+    
+    res.json({
+        status: "success",
+        message: "You made a get call",
+        users: result,
     });
     
 });
@@ -23,12 +36,13 @@ router.post("/", async (req, res) => {
 
 try {
 
-    const result = await insertTask(req.body);
+    const result = await insertUser(req.body);
     console.log(result);
     
     res.json({
         status: "success",
-        message: "Your new task has been added"
+        message: "Your new user has been added",
+        user: result
     });
 } catch {
     res.json({
@@ -46,7 +60,7 @@ router.delete("/:_id", async (req, res) => {
         const {_id} = req.params;
         console.log(_id);
         
-        const result = await deleteTask(_id);
+        const result = await deleteUser(_id);
         
         console.log(result);
         
@@ -54,7 +68,7 @@ router.delete("/:_id", async (req, res) => {
 
          return   res.json({
                 status : "success",
-                message: "The ticket has been deleted",
+                message: "The user has been deleted",
                 result,
             });
         }
@@ -73,5 +87,11 @@ router.delete("/:_id", async (req, res) => {
     }
         
     });
+
+    router.patch("/", async (req, res) => {
+        console.log(req.body);
+        const result = await updateUserPassword(req.body);
+        res.json({status: "success", result}); 
+     });
 
 export default router;

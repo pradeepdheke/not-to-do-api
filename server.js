@@ -14,8 +14,11 @@ app.use(express.json());
 
 // lode modules
 import taskRouter from './src/routers/taskRouter.js';
+import userRouter from './src/routers/userRouter.js';
 
 app.use("/api/v1/task", taskRouter);
+
+app.use("/api/v1/user", userRouter);
 
 
 app.use("/", (req, res) => {

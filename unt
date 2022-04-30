@@ -1,0 +1,12 @@
+1. Create user API for the following feature
+2. 1. create user with name, email and password
+3. 2. get all the users
+4. 3. get single user
+5. 4. delete a user
+6. 5. update a user
+
+
+Do the following
+a. create new branch - git branch user-api
+b. switch branch - git checkout user-api
+c. start writing code
